@@ -35,6 +35,7 @@
 		F57D81012F09055D000C8F3D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F57D81002F09055D000C8F3D /* GoogleService-Info.plist */; };
 		F57D81032F0907E7000C8F3D /* SyncModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57D81022F0907E7000C8F3D /* SyncModel.swift */; };
 		F57D81062F0910A6000C8F3D /* TaskLocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57D81052F0910A6000C8F3D /* TaskLocalStore.swift */; };
+		F57D81082F0945A5000C8F3D /* CoreDataTaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57D81072F0945A5000C8F3D /* CoreDataTaskStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		F57D81002F09055D000C8F3D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F57D81022F0907E7000C8F3D /* SyncModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncModel.swift; sourceTree = "<group>"; };
 		F57D81052F0910A6000C8F3D /* TaskLocalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskLocalStore.swift; sourceTree = "<group>"; };
+		F57D81072F0945A5000C8F3D /* CoreDataTaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTaskStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				F57D80A82F08AD56000C8F3D /* PersistenceController.swift */,
+				F57D81072F0945A5000C8F3D /* CoreDataTaskStore.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				F57D80EF2F08C239000C8F3D /* TaskRow.swift in Sources */,
 				F57D80DF2F08B133000C8F3D /* TaskListViewModel.swift in Sources */,
 				F57D81032F0907E7000C8F3D /* SyncModel.swift in Sources */,
+				F57D81082F0945A5000C8F3D /* CoreDataTaskStore.swift in Sources */,
 				F57D80EB2F08C158000C8F3D /* TaskListContent.swift in Sources */,
 				F57D80A02F08AD53000C8F3D /* TaskManagerProApp.swift in Sources */,
 				F57D80E72F08B9A3000C8F3D /* TaskWidget.swift in Sources */,

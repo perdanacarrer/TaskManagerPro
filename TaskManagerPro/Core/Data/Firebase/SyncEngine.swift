@@ -10,9 +10,9 @@ import Network
 
 actor SyncEngine {
 
-//    static let shared = SyncEngine(
-//        localStore: CoreDataTaskStore.shared
-//    )
+    static let shared = SyncEngine(
+        localStore: CoreDataTaskStore.shared
+    )
 
     private let monitor = NWPathMonitor()
     private let queue = DispatchQueue(label: "SyncEngineMonitor")

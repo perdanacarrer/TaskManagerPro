@@ -65,12 +65,15 @@ actor FirebaseSyncService {
 
             for document in snapshot.documents {
                 guard let remote = TaskDTO(from: document.data()) else { continue }
-
-                let remoteUUID = UUID(uuidString: remote.id)!
+                guard let remoteUUID = UUID(uuidString: remote.id) else { continue }
 
                 if let local = try localStore.fetchTask(by: remoteUUID) {
                     if remote.updatedAt > (local.updatedAt ?? .distantPast) {
                         local.title = remote.title
+                        local.details = remote.details
+                        local.createdAt = remote.createdAt
+                        local.priority = remote.priority
+                        local.isCompleted = remote.isCompleted
                         local.updatedAt = remote.updatedAt
                         local.syncStatus = SyncStatus.synced.rawValue
                     }
@@ -78,6 +81,10 @@ actor FirebaseSyncService {
                     let task = localStore.createTask()
                     task.id = remoteUUID
                     task.title = remote.title
+                    task.details = remote.details
+                    task.createdAt = remote.createdAt
+                    task.priority = remote.priority
+                    task.isCompleted = remote.isCompleted
                     task.updatedAt = remote.updatedAt
                     task.syncStatus = SyncStatus.synced.rawValue
                 }
