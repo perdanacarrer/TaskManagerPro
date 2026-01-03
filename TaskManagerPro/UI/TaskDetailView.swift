@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import WidgetKit
 
 struct TaskDetailView: View {
     @Environment(\.managedObjectContext) private var context
@@ -66,6 +67,7 @@ private extension TaskDetailView {
 
         do {
             try context.save()
+            WidgetCenter.shared.reloadAllTimelines()
             dismiss()
         } catch {
             print("Failed to update task:", error.localizedDescription)

@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import Combine
+import WidgetKit
 
 @MainActor
 final class TaskListViewModel: ObservableObject {
@@ -83,6 +84,7 @@ final class TaskListViewModel: ObservableObject {
 
         do {
             try context.save()
+            WidgetCenter.shared.reloadAllTimelines()
         } catch {
             print("Failed to delete task: \(error)")
         }

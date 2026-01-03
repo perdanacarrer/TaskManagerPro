@@ -1,8 +1,8 @@
 //
 //  TaskWidget.swift
-//  TaskManagerPro
+//  TaskWidget
 //
-//  Created by oscar perdana on 03/01/26.
+//  Created by oscar perdana on 04/01/26.
 //
 
 import WidgetKit
@@ -27,10 +27,18 @@ struct Provider: TimelineProvider {
     func getTimeline(in context: Context,
                      completion: @escaping (Timeline<TaskEntry>) -> Void) {
 
-        // Production: fetch from Core Data (App Group)
-        let entry = TaskEntry(date: Date(), taskCount: 10)
+        let count = WidgetTaskStore.shared.taskCount()
 
-        let timeline = Timeline(entries: [entry], policy: .after(.now.addingTimeInterval(3600)))
+        let entry = TaskEntry(
+            date: Date(),
+            taskCount: count
+        )
+
+        let timeline: Timeline<TaskEntry> = Timeline(
+            entries: [entry],
+            policy: .after(Date().addingTimeInterval(300))
+        )
+
         completion(timeline)
     }
 }
@@ -62,5 +70,6 @@ struct TaskWidgetView: View {
                 .font(.system(size: 40, weight: .bold))
         }
         .padding()
+        .containerBackground(.fill.tertiary, for: .widget)
     }
 }

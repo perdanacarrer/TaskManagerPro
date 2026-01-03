@@ -8,20 +8,32 @@
 import CoreData
 
 struct PersistenceController {
+
     static let shared = PersistenceController()
 
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
+
         container = NSPersistentContainer(name: "TaskManagerPro")
 
         if inMemory {
-            container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
+            container.persistentStoreDescriptions.first?.url =
+                URL(fileURLWithPath: "/dev/null")
+        } else {
+            let storeURL = FileManager.default
+                .containerURL(
+                    forSecurityApplicationGroupIdentifier: "group.com.sarimin.TaskManagerPro"
+                )!
+                .appendingPathComponent("TaskManagerPro.sqlite")
+
+            let description = NSPersistentStoreDescription(url: storeURL)
+            container.persistentStoreDescriptions = [description]
         }
 
         container.loadPersistentStores { _, error in
-            if let error = error {
-                fatalError("Core Data error \(error)")
+            if let error {
+                fatalError("Core Data error: \(error)")
             }
         }
 
@@ -32,5 +44,3 @@ struct PersistenceController {
         container.viewContext
     }
 }
-
-

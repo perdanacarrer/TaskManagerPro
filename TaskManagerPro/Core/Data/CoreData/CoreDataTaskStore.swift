@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import WidgetKit
 
 final class CoreDataTaskStore: TaskLocalStore {
 
@@ -61,6 +62,7 @@ final class CoreDataTaskStore: TaskLocalStore {
     func save() throws {
         if context.hasChanges {
             try context.save()
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
 }

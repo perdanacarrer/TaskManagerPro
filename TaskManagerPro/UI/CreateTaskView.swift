@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import WidgetKit
 
 struct CreateTaskView: View {
     @Environment(\.managedObjectContext) private var context
@@ -57,6 +58,7 @@ private extension CreateTaskView {
 
         do {
             try context.save()
+            WidgetCenter.shared.reloadAllTimelines()
             dismiss()
         } catch {
             print("Failed to save task:", error.localizedDescription)
