@@ -123,6 +123,7 @@
 		F57D81222F098A7C000C8F3D /* TaskManagerPro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskManagerPro.entitlements; sourceTree = "<group>"; };
 		F57D81232F098ADB000C8F3D /* TaskWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskWidgetExtension.entitlements; sourceTree = "<group>"; };
 		F57D81242F098CF4000C8F3D /* WidgetTaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTaskStore.swift; sourceTree = "<group>"; };
+		F5D11E822F09F29100744B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +189,7 @@
 		F57D809E2F08AD53000C8F3D /* TaskManagerPro */ = {
 			isa = PBXGroup;
 			children = (
+				F5D11E822F09F29100744B44 /* Info.plist */,
 				F57D81222F098A7C000C8F3D /* TaskManagerPro.entitlements */,
 				F57D80CE2F08AE53000C8F3D /* App */,
 				F57D80D42F08AF6B000C8F3D /* Core */,
@@ -715,6 +717,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TaskManagerPro/Info.plist;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use to unlock the app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -747,6 +750,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TaskManagerPro/Info.plist;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use to unlock the app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

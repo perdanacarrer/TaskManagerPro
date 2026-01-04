@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import CoreSpotlight
 import Combine
 import WidgetKit
 
@@ -80,11 +81,14 @@ final class TaskListViewModel: ObservableObject {
     }
     
     func delete(_ task: TaskEntity) {
+        let id = task.id?.uuidString ?? ""
         context.delete(task)
 
         do {
             try context.save()
             WidgetCenter.shared.reloadAllTimelines()
+            CSSearchableIndex.default()
+                        .deleteSearchableItems(withIdentifiers: [id])
         } catch {
             print("Failed to delete task: \(error)")
         }

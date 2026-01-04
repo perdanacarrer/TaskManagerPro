@@ -14,7 +14,7 @@ struct TaskDetailView: View {
     @Environment(\.dismiss) private var dismiss
 
     let task: TaskEntity
-
+    private let spotlight = SpotlightIndexer()
     @State private var title: String
     @State private var details: String
     @State private var dueDate: Date
@@ -68,6 +68,11 @@ private extension TaskDetailView {
         do {
             try context.save()
             WidgetCenter.shared.reloadAllTimelines()
+            spotlight.index(
+                id: task.id!.uuidString,
+                title: task.title ?? "",
+                description: task.details ?? ""
+            )
             dismiss()
         } catch {
             print("Failed to update task:", error.localizedDescription)

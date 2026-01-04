@@ -19,6 +19,7 @@ struct CreateTaskView: View {
     @State private var priority = "Medium"
     @State private var isCompleted = false
     @State private var isDelete = false
+    private let spotlight = SpotlightIndexer()
 
     var body: some View {
         TaskFormView(
@@ -59,6 +60,11 @@ private extension CreateTaskView {
         do {
             try context.save()
             WidgetCenter.shared.reloadAllTimelines()
+            spotlight.index(
+                id: task.id!.uuidString,
+                title: task.title ?? "",
+                description: task.details ?? ""
+            )
             dismiss()
         } catch {
             print("Failed to save task:", error.localizedDescription)

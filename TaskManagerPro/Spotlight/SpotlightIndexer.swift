@@ -15,7 +15,7 @@ final class SpotlightIndexer {
         attr.contentDescription = description
 
         let item = CSSearchableItem(uniqueIdentifier: id,
-                                    domainIdentifier: "tasks",
+                                    domainIdentifier: "com.sarimin.TaskManagerPro",
                                     attributeSet: attr)
         CSSearchableIndex.default().indexSearchableItems([item])
     }
