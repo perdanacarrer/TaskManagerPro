@@ -30,6 +30,7 @@ private extension TaskFormView {
     var taskInfoSection: some View {
         Section(header: Text("TASK INFO")) {
             TextField("Title", text: $title)
+                .accessibilityIdentifier("Title")
             ZStack(alignment: .topLeading) {
                 if details.isEmpty {
                     Text("Details")
@@ -68,6 +69,7 @@ private extension TaskFormView {
     var statusSection: some View {
         Section(header: Text("STATUS")) {
             Toggle("Completion", isOn: $isCompleted)
+                .accessibilityIdentifier("Completion")
         }
     }
 }

@@ -41,6 +41,8 @@ struct TaskListContent: View {
                     }
                 }
             }
+            .accessibilityElement(children: .contain)
+            .accessibilityIdentifier("task_list")
             .alert("Do you sure to delete this?", isPresented: $showingDeleteAlert) {
                 Button("No", role: .cancel) { }
 

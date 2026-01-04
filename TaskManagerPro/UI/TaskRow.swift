@@ -32,6 +32,7 @@ struct TaskRow: View {
             if task.isCompleted {
                 Image(systemName: "checkmark.circle.fill")
                     .foregroundStyle(.green)
+                    .accessibilityIdentifier("completed_icon")
             }
         }
         .padding(.vertical, 4)

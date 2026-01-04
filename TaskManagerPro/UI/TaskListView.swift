@@ -28,35 +28,44 @@ struct TaskListView: View {
                 .navigationTitle("My Tasks")
                 .searchable(text: $viewModel.searchText)
                 .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            showingCreateTask = true
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-                    }
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Menu {
-                            Button("All") { viewModel.filter = .all }
-                            Button("Completed") { viewModel.filter = .completed }
-                            Button("Pending") { viewModel.filter = .pending }
-                            Divider()
-                            Button("High Priority") { viewModel.filter = .priority("High") }
-                            Button("Medium Priority") { viewModel.filter = .priority("Medium") }
-                            Button("Low Priority") { viewModel.filter = .priority("Low") }
-                            Divider()
-                            Button("Due Today") { viewModel.filter = .dueDate(.today) }
-                            Button("Upcoming") { viewModel.filter = .dueDate(.upcoming) }
-                            Button("Overdue") { viewModel.filter = .dueDate(.overdue) }
-                        } label: {
-                            Image(systemName: "line.3.horizontal.decrease.circle")
-                        }
-                    }
+                    addButton
+                    filterMenu
                 }
                 .navigationDestination(isPresented: $showingCreateTask) {
                     CreateTaskView()
                         .environment(\.managedObjectContext, context)
                 }
+        }
+    }
+    
+    private var addButton: some ToolbarContent {
+        ToolbarItem(placement: .topBarTrailing) {
+            Button {
+                showingCreateTask = true
+            } label: {
+                Image(systemName: "plus")
+            }
+            .accessibilityIdentifier("plus")
+        }
+    }
+
+    private var filterMenu: some ToolbarContent {
+        ToolbarItem(placement: .topBarTrailing) {
+            Menu {
+                Button("All") { viewModel.filter = .all }
+                Button("Completed") { viewModel.filter = .completed }
+                Button("Pending") { viewModel.filter = .pending }
+                Divider()
+                Button("High Priority") { viewModel.filter = .priority("High") }
+                Button("Medium Priority") { viewModel.filter = .priority("Medium") }
+                Button("Low Priority") { viewModel.filter = .priority("Low") }
+                Divider()
+                Button("Due Today") { viewModel.filter = .dueDate(.today) }
+                Button("Upcoming") { viewModel.filter = .dueDate(.upcoming) }
+                Button("Overdue") { viewModel.filter = .dueDate(.overdue) }
+            } label: {
+                Image(systemName: "line.3.horizontal.decrease.circle")
+            }
         }
     }
 }

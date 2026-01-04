@@ -9,7 +9,8 @@ import SwiftUI
 import LocalAuthentication
 
 struct RootView: View {
-    @State private var unlocked = false
+
+    @State private var unlocked = UITestEnvironment.isUITest
 
     var body: some View {
         Group {
@@ -17,15 +18,19 @@ struct RootView: View {
                 TaskListView()
             } else {
                 Text("Authenticating…")
-                    .onAppear(perform: authenticate)
+                    .onAppear {
+                        authenticate()
+                    }
             }
         }
     }
 
-    func authenticate() {
+    private func authenticate() {
         let context = LAContext()
-        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
-                               localizedReason: "Secure your tasks") { success, _ in
+        context.evaluatePolicy(
+            .deviceOwnerAuthenticationWithBiometrics,
+            localizedReason: "Secure your tasks"
+        ) { success, _ in
             DispatchQueue.main.async {
                 unlocked = success
             }

@@ -38,9 +38,37 @@ struct PersistenceController {
         }
 
         container.viewContext.automaticallyMergesChangesFromParent = true
+        if UITestEnvironment.isUITest {
+            seedUITestData()
+        }
     }
 
     var viewContext: NSManagedObjectContext {
         container.viewContext
+    }
+    
+    private func seedUITestData() {
+        let context = container.viewContext
+
+        let request: NSFetchRequest<TaskEntity> = TaskEntity.fetchRequest()
+        let count = (try? context.count(for: request)) ?? 0
+
+        // Prevent duplicate inserts
+        guard count == 0 else { return }
+
+        let task = TaskEntity(context: context)
+        task.id = UUID()
+        task.title = "UI Test Task"
+        task.details = "This task is for UI testing"
+        task.isCompleted = false
+        task.priority = "Medium"
+        task.createdAt = Date()
+        task.updatedAt = Date()
+
+        do {
+            try context.save()
+        } catch {
+            fatalError("Failed to seed UI test data: \(error)")
+        }
     }
 }

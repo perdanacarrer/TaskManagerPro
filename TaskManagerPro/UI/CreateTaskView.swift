@@ -37,6 +37,7 @@ struct CreateTaskView: View {
                 Button("Save") {
                     createTask()
                 }
+                .accessibilityIdentifier("Save")
                 .disabled(!isFormValid)
             }
         }

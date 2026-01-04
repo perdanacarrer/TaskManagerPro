@@ -43,6 +43,7 @@
 		F57D811D2F0984E8000C8F3D /* TaskWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F57D810D2F0984E6000C8F3D /* TaskWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F57D81262F098F24000C8F3D /* WidgetTaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57D81242F098CF4000C8F3D /* WidgetTaskStore.swift */; };
 		F57D81272F099100000C8F3D /* TaskManagerPro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F57D80AA2F08AD56000C8F3D /* TaskManagerPro.xcdatamodeld */; };
+		F5D11E842F0A30A300744B44 /* UITestEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D11E832F0A30A300744B44 /* UITestEnvironment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		F57D81232F098ADB000C8F3D /* TaskWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskWidgetExtension.entitlements; sourceTree = "<group>"; };
 		F57D81242F098CF4000C8F3D /* WidgetTaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTaskStore.swift; sourceTree = "<group>"; };
 		F5D11E822F09F29100744B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F5D11E832F0A30A300744B44 /* UITestEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestEnvironment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				F57D81052F0910A6000C8F3D /* TaskLocalStore.swift */,
+				F5D11E832F0A30A300744B44 /* UITestEnvironment.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				F57D80F72F08EFD0000C8F3D /* TaskListFilter.swift in Sources */,
 				F57D80AC2F08AD56000C8F3D /* TaskManagerPro.xcdatamodeld in Sources */,
 				F57D80F92F08F83C000C8F3D /* SyncEngine.swift in Sources */,
+				F5D11E842F0A30A300744B44 /* UITestEnvironment.swift in Sources */,
 				F57D80EF2F08C239000C8F3D /* TaskRow.swift in Sources */,
 				F57D80DF2F08B133000C8F3D /* TaskListViewModel.swift in Sources */,
 				F57D81032F0907E7000C8F3D /* SyncModel.swift in Sources */,
